@@ -1,0 +1,28 @@
+﻿<odoo>
+    <!-- VISTA DE LISTA -->
+    <record id="view_res_vehicle_category_list" model="ir.ui.view">
+        <field name="name">res.vehicle.category.list</field>
+        <field name="model">res.vehicle.category</field>
+        <field name="arch" type="xml" >
+            <tree string="Vehiculos" editable="top">
+                <field name="name"/>
+                <field name="color" widget="color_picker"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ACCIÓN -->
+    <!-- <record id="action_res_vehicle_category" model="ir.actions.act_window">
+        <field name="name">Categoria de vehiculos</field>
+        <field name="res_model">res.vehicle.category</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to add a new simple vehicle.
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_res_vehicle_category" name="Categorias Vehiculos" parent="menu_res_vehicle_conf_root" action="action_res_vehicle_category" sequence="2"/> -->
+
+    <!-- <menuitem id="menu_res_vehicle_category" name="Categorias Vehiculos" parent="menu_res_vehicle_conf_root" action="action_res_vehicle_category" sequence="1"/> -->
+</odoo>

@@ -1,0 +1,75 @@
+<odoo>
+    <!-- VISTA DE LISTA -->
+    <record id="view_res_vehicle_list" model="ir.ui.view">
+        <field name="name">res.vehicle.list</field>
+        <field name="model">res.vehicle</field>
+        <field name="arch" type="xml">
+            <tree string="Vehiculos">
+                <field name="vehicle_type"/>
+                <field name="name"/>
+                <field name="vehicle_categories" widget="many2many_tags" options="{'color_field': 'color'}"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- VISTA DE FORMULARIO -->
+    <record id="view_res_vehicle_form" model="ir.ui.view">
+        <field name="name">res.vehicle.form</field>
+        <field name="model">res.vehicle</field>
+        <field name="arch" type="xml">
+            <form string="Vehiculos">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="vehicle_type"/>
+                        <field name="vehicle_categories" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- VISTA DE BÚSQUEDA -->
+    <record id="view_res_vehicle_search" model="ir.ui.view">
+        <field name="name">res.vehicle.search</field>
+        <field name="model">res.vehicle</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="vehicle_type"/>
+                <field name="vehicle_categories"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ACCIÓN -->
+    <record id="action_res_vehicle" model="ir.actions.act_window">
+        <field name="name">Vehiculos</field>
+        <field name="res_model">res.vehicle</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_res_vehicle" name="Vehiculos" parent="contacts.res_partner_menu_config" action="action_res_vehicle" sequence="4"/>
+
+    <!-- VISTA LIST EN CONTACTOS-->  
+    <record id="view_res_partner_form_vehicle_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.vehicle.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='contact_addresses']" position="after">
+                <page string="Vehiculos" name="vehiculos">
+                    <field name="vehicles_ids">
+                        <tree>
+                            <field name="vehicle_type"/>
+                            <field name="name"/>
+                            <field name="vehicle_categories" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

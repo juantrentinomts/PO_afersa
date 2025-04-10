@@ -1,0 +1,1 @@
+from . import vehicles, res_partner

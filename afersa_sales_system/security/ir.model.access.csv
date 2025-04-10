@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_additional_addresses,additional.addresses user,model_additional_addresses,base.group_user,1,1,1,1
+access_sale_afersa_cancelations,sale.afersa.cancelations user,model_sale_afersa_cancelations,base.group_user,1,1,1,1
+access_sale_cancelation_type,sale.cancelation.type user,model_sale_cancelation_type,base.group_user,1,1,1,1
+access_sale_cancelations,sale.cancelations user,model_sale_cancelations,base.group_user,1,1,1,1

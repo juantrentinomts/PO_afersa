@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_vehicle,res.vehicle user,model_res_vehicle,base.group_user,1,1,1,1
+access_res_vehicle_type,res.vehicle.type user,model_res_vehicle_type,base.group_user,1,1,1,1
+access_res_vehicle_category,res.vehicle.category user,model_res_vehicle_category,base.group_user,1,1,1,1
+

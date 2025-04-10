@@ -1,0 +1,1 @@
+from . import sale,additional_addresses,purchase,project_task,res_partner,product_template

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_task_kanban_inherit" model="ir.ui.view">
+            <field name="name">project.task.kanban.inherit.icon</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_kanban"/>
+            <field name="arch" type="xml">
+               <xpath expr="//div[@class='oe_kanban_bottom_left']" position="inside">
+                    <div class="oe_kanban_content">
+                        <field name="stage_duration_icon" invisible="1"/>
+                        <div t-if="record.stage_duration_icon.raw_value == 'warning'" class="o_badge o_badge_warning">
+                            <span class="fa fa-exclamation-triangle text-warning" title="Warning Duration"/>
+                        </div>
+                        <div t-if="record.stage_duration_icon.raw_value == 'danger'" class="o_badge o_badge_danger">
+                            <span class="fa fa-exclamation-triangle text-danger" title="Danger Duration"/>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,21 @@
+<odoo>
+    <record model="ir.ui.view" id="wizard_sale_afersa_cancelations_view">
+        <field name="name">wizard.sale.afersa.cancelations.view</field>
+        <field name="model">sale.afersa.cancelations</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                         <field name="cancelation_type" />
+                         <field name="negative_score" />
+                    </group>
+                </group>
+                <footer>
+                    <button name="cancel_afersa" type="object"
+                                string="Cancelar" class="oe_highlight"/>
+
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,84 @@
+<odoo>
+    <record id="view_project_task_form_inherit" model="ir.ui.view">
+        <field name="name">project.task.form.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//span[@id='start_rating_buttons']" position="before">
+                <button name="action_view_purchase_afersa"
+                        type="object"
+                        class="oe_stat_button"
+                        invisible="not sale_order_id"
+                        icon="fa-credit-card">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_text">Compra</span>
+                        </div>
+                </button>
+            </xpath>
+
+            <xpath expr="//field[@name='project_id']" position="after">
+                <field name="sale_order_id" invisible="True"/>
+            </xpath>
+            <xpath expr="//div[@id='date_deadline_and_recurring_task']" position="after">
+                <field name="charge_date"/>
+                <field name="provider_id"/>
+                <field name="vehicle_id" invisible="provider_id == False" options="{'no_open': True, 'no_quick_create': True}"/>
+                <field name="initial_direction"/>
+                <field name="end_direction"/>
+                <field name="customer_reference"/>
+            </xpath>
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field name="purchase_order_price"/>
+                <field name="sale_order_price"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_proyect_task_kanban_inherit" model="ir.ui.view">
+        <field name="name">project.task.kanban.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='date_deadline']" position="before">
+                <div invisible="state in ['1_done', '1_canceled']"  t-if="record.date_deadline" >
+                    <field name="charge_date"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_proyect_task_tree_inherit" model="ir.ui.view">
+        <field name="name">project.task.tree.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name='charge_date' optional="show" />
+                <field name='initial_direction' optional="show" />
+                <field name='end_direction' optional="show" />
+                <field name='provider_id' optional="show" />
+                <field name='vehicle_id' optional="show" />
+            </xpath>
+
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="optional">show</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='user_ids']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='activity_ids']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='tag_ids']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='stage_id']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
